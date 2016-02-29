@@ -6,6 +6,9 @@ import org.junit.Test;
 
 public class GildedRoseTest {
 	
+//	TO DO
+//	Finish tests before refactoring
+	
     @Test
     public void randomNormalItemTestStillWithinSellByDate() {
         Item[] items = new Item[] { new Item("Normal Item", 10, 20) };
