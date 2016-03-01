@@ -23,17 +23,23 @@ class GildedRose {
 	}
 
 	private void quality(int i) {
-		if (items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
+		String name = items[i].name;
+		switch(name) {
+		case "Sulfuras, Hand of Ragnaros":
 //			Do nothing to quality
-		} else if (items[i].name.equals("Aged Brie")) {
+			break;
+		case "Aged Brie":
 			qualityAgedBrieUpdateStrategy(i);
-		} else if (items[i].name.contains("Backstage")) {
-			qualityBackstagePassesUpdateStrategy(i);
-		} else if (items[i].name.contains("Conjured")) {
-			qualityConjuredUpdateStrategy(i);
-		} else {
-			qualityStandardUpdateStrategy(i);
-		}		
+			break;
+		default:
+			if (name.contains("Backstage")) {
+				qualityBackstagePassesUpdateStrategy(i);
+			} else if (name.contains("Conjured")) {
+				qualityConjuredUpdateStrategy(i);
+			} else {
+				qualityStandardUpdateStrategy(i);
+			}
+		}
 	}
 
 	private void qualityAgedBrieUpdateStrategy(int i) {
