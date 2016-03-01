@@ -250,7 +250,7 @@ public class GildedRoseTest {
     
 //	Conjured
     
-    @Ignore
+    @Test
     public void conjuredItem_Within_SellByDate_Has_SellByDate_DecreaseBy1() {
         Item[] items = new Item[] { new Item("Conjured Mana Cake", 10, 20) };
         GildedRose app = new GildedRose(items);
@@ -258,7 +258,7 @@ public class GildedRoseTest {
         assertEquals(9, app.items[0].sellIn);	
     }
     
-    @Ignore
+    @Test
     public void conjuredItem_Outside_SellByDate_Has_SellByDate_DecreaseBy1() {
         Item[] items = new Item[] { new Item("Conjured Mana Cake", -5, 20) };
         GildedRose app = new GildedRose(items);
@@ -266,7 +266,7 @@ public class GildedRoseTest {
         assertEquals(-6, app.items[0].sellIn);	
     }
     
-    @Ignore
+    @Test
     public void conjuredItem_Within_SellByDate_Has_Quality_DecreaseBy2() {
         Item[] items = new Item[] { new Item("Conjured Mana Cake", 10, 20) };
         GildedRose app = new GildedRose(items);
@@ -274,7 +274,7 @@ public class GildedRoseTest {
         assertEquals(18, app.items[0].quality);		
     }
 	    
-    @Ignore
+    @Test
     public void conjuredItem_Outside_SellByDate_Has_Quality_DecreaseBy4() {
         Item[] items = new Item[] { new Item("Conjured Mana Cake", -5, 20) };
         GildedRose app = new GildedRose(items);
@@ -282,7 +282,7 @@ public class GildedRoseTest {
         assertEquals(16, app.items[0].quality);		
     }
           
-    @Ignore
+    @Test
     public void conjuredItem_Within_SellByDate_Quality_CantGoBelow0() {
         Item[] items = new Item[] { new Item("Conjured Mana Cake", 15, 0) };
         GildedRose app = new GildedRose(items);
@@ -290,7 +290,7 @@ public class GildedRoseTest {
         assertEquals(0, app.items[0].quality);		
     }
     
-    @Ignore
+    @Test
     public void conjuredItem_Outside_SellByDate_Quality_CantGoBelow0() {
         Item[] items = new Item[] { new Item("Conjured Mana Cake", -1, 1) };
         GildedRose app = new GildedRose(items);
