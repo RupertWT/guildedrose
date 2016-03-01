@@ -15,12 +15,10 @@ class GildedRose {
     }
 
 	private void sellIn(int i) {
-		if (items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
-//			Do nothing to sellIn
-        } else {
-        	items[i].sellIn = items[i].sellIn - 1;
-        }		
+		items[i].sellIn = (items[i].name.equals("Sulfuras, Hand of Ragnaros")) ? items[i].sellIn : items[i].sellIn - 1;	
 	}
+	
+	//currentPlayer = (currentPlayer == 1) ? 2 : 1;
 
 	private void quality(int i) {
 		String name = items[i].name;
@@ -43,12 +41,8 @@ class GildedRose {
 	}
 
 	private void qualityAgedBrieUpdateStrategy(int i) {
-		if (items[i].sellIn < 0) {
-			items[i].quality = items[i].quality + 2;
-		} else {
-			items[i].quality = items[i].quality + 1;
-		}
-    	QualityMax(i);
+		items[i].quality = (items[i].sellIn) < 0 ? items[i].quality + 2: items[i].quality + 1;	
+		QualityMax(i);
 	}
 
 	private void qualityBackstagePassesUpdateStrategy(int i) {
@@ -65,32 +59,20 @@ class GildedRose {
 	}
 
 	private void qualityConjuredUpdateStrategy(int i) {
-		if (items[i].sellIn < 0) {
-			items[i].quality = items[i].quality - 4;
-		} else {
-			items[i].quality = items[i].quality - 2;
-		}
+		items[i].quality = (items[i].sellIn < 0) ? items[i].quality - 4: items[i].quality - 2;	
     	QualityMin(i);
 	}
 
 	private void qualityStandardUpdateStrategy(int i) {
-		if (items[i].sellIn < 0) {
-			items[i].quality = items[i].quality - 2;
-		} else {
-			items[i].quality = items[i].quality - 1;
-		}	
+		items[i].quality = (items[i].sellIn < 0) ? items[i].quality - 2: items[i].quality - 1;	
 		QualityMin(i);
 	}
 	
 	private void QualityMax(int i) {
-		if (items[i].quality > 50) {
-			items[i].quality = 50;
-		}
+		items[i].quality = (items[i].quality > 50) ? 50: items[i].quality;	
 	}
 
 	private void QualityMin(int i) {
-		if (items[i].quality < 0) {
-			items[i].quality = 0;
-		}
+		items[i].quality = (items[i].quality < 0) ? 0: items[i].quality;
 	}
 }
