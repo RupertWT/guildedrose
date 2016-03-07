@@ -17,8 +17,6 @@ class GildedRose {
 	private void sellIn(int i) {
 		items[i].sellIn = (items[i].name.equals("Sulfuras, Hand of Ragnaros")) ? items[i].sellIn : items[i].sellIn - 1;	
 	}
-	
-	//currentPlayer = (currentPlayer == 1) ? 2 : 1;
 
 	private void quality(int i) {
 		String name = items[i].name;
