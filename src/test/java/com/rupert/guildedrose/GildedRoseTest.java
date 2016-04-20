@@ -14,7 +14,7 @@ public class GildedRoseTest {
         Item[] items = new Item[] { new Item("Normal Item", 10, 20) };
         GildedRose app = new GildedRose(items);
         app.updateItem();
-        assertEquals(9, app.items[0].sellIn);	
+        assertEquals(9, app.items[0].sellIn); 
         assertEquals(19, app.items[0].quality);	
     }
 	
