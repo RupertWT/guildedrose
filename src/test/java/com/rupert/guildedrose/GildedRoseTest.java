@@ -7,13 +7,24 @@ import org.junit.Test;
 
 public class GildedRoseTest {
 	
+//	End to end test
+	
+    @Test
+    public void end_To_End_Basic_Item() {
+        Item[] items = new Item[] { new Item("Normal Item", 10, 20) };
+        GildedRose app = new GildedRose(items);
+        app.updateItem();
+        assertEquals(9, app.items[0].sellIn);	
+        assertEquals(19, app.items[0].quality);	
+    }
+	
 //	Normal Items
 	
     @Test
     public void normalItem_Within_SellByDate_Has_SellByDate_DecreaseBy1() {
         Item[] items = new Item[] { new Item("Normal Item", 10, 20) };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.updateSellIn();
         assertEquals(9, app.items[0].sellIn);	
     }
     
@@ -21,7 +32,7 @@ public class GildedRoseTest {
     public void normalItem_Outside_SellByDate_Has_SellByDate_DecreaseBy1() {
         Item[] items = new Item[] { new Item("Normal Item", -5, 20) };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.updateSellIn();
         assertEquals(-6, app.items[0].sellIn);	
     }
     
@@ -64,7 +75,7 @@ public class GildedRoseTest {
     public void agedBrie_Within_SellByDate_Has_SellByDate_DecreaseBy1() {
         Item[] items = new Item[] { new Item("Aged Brie", 20, 20) };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.updateSellIn();
         assertEquals(19, app.items[0].sellIn);		
     }
     
@@ -72,7 +83,7 @@ public class GildedRoseTest {
     public void agedBrie_Outside_SellByDate_Has_SellByDate_DecreaseBy1() {
         Item[] items = new Item[] { new Item("Aged Brie", 0, 20) };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.updateSellIn();
         assertEquals(-1, app.items[0].sellIn);		
     }
     
@@ -114,7 +125,7 @@ public class GildedRoseTest {
     public void backstagePasses_Within_SellByDate_Has_SellByDate_DecreaseBy1() {
         Item[] items = new Item[] { new Item("Aged Brie", 20, 20) };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.updateSellIn();
         assertEquals(19, app.items[0].sellIn);		
     }
     
@@ -122,7 +133,7 @@ public class GildedRoseTest {
     public void backstagePasses_Outside_SellByDate_Has_SellByDate_DecreaseBy1() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 0, 20) };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.updateSellIn();
         assertEquals(-1, app.items[0].sellIn);	
     }
      
@@ -220,7 +231,7 @@ public class GildedRoseTest {
     public void sulfuras_Within_SellByDate_Has_SellByDate_RemainStatic() {
         Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 20, 80) };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.updateSellIn();
         assertEquals(20, app.items[0].sellIn);	
     }
    
@@ -228,7 +239,7 @@ public class GildedRoseTest {
     public void sulfuras_Outside_SellByDate_Has_SellByDate_RemainStatic() {
         Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", -20, 80) };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.updateSellIn();
         assertEquals(-20, app.items[0].sellIn);	
     }
     
@@ -254,7 +265,7 @@ public class GildedRoseTest {
     public void conjuredItem_Within_SellByDate_Has_SellByDate_DecreaseBy1() {
         Item[] items = new Item[] { new Item("Conjured Mana Cake", 10, 20) };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.updateSellIn();
         assertEquals(9, app.items[0].sellIn);	
     }
     
@@ -262,7 +273,7 @@ public class GildedRoseTest {
     public void conjuredItem_Outside_SellByDate_Has_SellByDate_DecreaseBy1() {
         Item[] items = new Item[] { new Item("Conjured Mana Cake", -5, 20) };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
+        app.updateSellIn();
         assertEquals(-6, app.items[0].sellIn);	
     }
     

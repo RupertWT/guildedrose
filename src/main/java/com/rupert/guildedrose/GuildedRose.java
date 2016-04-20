@@ -6,17 +6,34 @@ class GildedRose {
     public GildedRose(Item[] items) {
         this.items = items;
     }
-
-    public void updateQuality() {
+   
+    
+    
+    public void updateItem() {
+    	updateQuality();
+    	updateSellIn();
+    }
+    
+    
+    
+    public void updateSellIn() {
         for (int i = 0; i < items.length; i++) {
-        	quality(i);
         	sellIn(i);
         }
     }
-
+    
 	private void sellIn(int i) {
 		items[i].sellIn = (items[i].name.equals("Sulfuras, Hand of Ragnaros")) ? items[i].sellIn : items[i].sellIn - 1;	
-	}
+	}   
+    
+	
+	
+	
+	public void updateQuality() {
+        for (int i = 0; i < items.length; i++) {
+        	quality(i);
+        }
+    }
 
 	private void quality(int i) {
 		String name = items[i].name;
