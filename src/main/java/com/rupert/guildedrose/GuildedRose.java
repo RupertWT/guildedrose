@@ -57,7 +57,7 @@ class GildedRose {
 	
 		private void qualityAgedBrieUpdateStrategy(int i) {
 			items[i].quality = (items[i].sellIn) < 0 ? items[i].quality + 2: items[i].quality + 1;	
-			QualityMax(i);
+			qualityMax(i);
 		}
 	
 		private void qualityBackstagePassesUpdateStrategy(int i) {
@@ -70,24 +70,24 @@ class GildedRose {
 			} else {
 				items[i].quality = items[i].quality + 1;
 			}
-	    	QualityMax(i);
+	    	qualityMax(i);
 		}
 	
 		private void qualityConjuredUpdateStrategy(int i) {
 			items[i].quality = (items[i].sellIn < 0) ? items[i].quality - 4: items[i].quality - 2;	
-	    	QualityMin(i);
+	    	qualityMin(i);
 		}
 	
 		private void qualityStandardUpdateStrategy(int i) {
 			items[i].quality = (items[i].sellIn < 0) ? items[i].quality - 2: items[i].quality - 1;	
-			QualityMin(i);
+			qualityMin(i);
 		}
 		
-		private void QualityMax(int i) {
+		private void qualityMax(int i) {
 			items[i].quality = (items[i].quality > 50) ? 50: items[i].quality;	
 		}
 	
-		private void QualityMin(int i) {
+		private void qualityMin(int i) {
 			items[i].quality = (items[i].quality < 0) ? 0: items[i].quality;
 		}
 }
